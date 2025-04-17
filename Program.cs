@@ -12,6 +12,7 @@ if(builder.Environment.IsDevelopment())
 else
 {
     builder.Services.AddDbContext<MyDatabaseContext>(options =>
+        // use POSTGRESQL connection instead!!
         options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_POSTGRESQL_CONNECTIONSTRING")));
     builder.Services.AddStackExchangeRedisCache(options =>
     {
